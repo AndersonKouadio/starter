@@ -1,35 +1,32 @@
 import createMiddleware from 'next-intl/middleware';
-import { routing } from './i18n/routing';
-import { NextRequest, NextResponse } from 'next/server';
-import { adminMiddleware } from './middlewares/admin.middleware';
+import {NextRequest, NextResponse} from 'next/server';
+import {locales} from '@/config';
 
 export default async function middleware(request: NextRequest) {
-    const pathname = request.nextUrl.pathname;
+  
+ 
 
-    // 🔥 Logique pour les apis Rest
-    if (pathname.startsWith('/api/')) {
-        // Pas d'i18n pour les APIs
-        return NextResponse.next();
-    }
 
-    // 🔥 Logique pour les routes admin
-    if (pathname.startsWith('/admin')) {
-        // Logique spéciale pour admin
-        return adminMiddleware(request);
-    }
+  // Step 1: Use the incoming request (example)
+  const defaultLocale = request.headers.get('dashcode-locale') || 'en';
+ 
+  // Step 2: Create and call the next-intl middleware (example)
+  const handleI18nRouting = createMiddleware({
+    locales,
+    defaultLocale
+    
+  });
+  const response = handleI18nRouting(request);
+ 
+  // Step 3: Alter the response (example)
+  response.headers.set('dashcode-locale', defaultLocale);
 
-    // i18n pour le reste
-    const handleI18nRouting = createMiddleware(routing);
-    return handleI18nRouting(request);
+
+ 
+  return response;
 }
-
-
+ 
 export const config = {
-    // Match all pathnames except for
-    // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
-    // - … the ones containing a dot (e.g. `favicon.ico`)
-    matcher: [
-        '/((?!api|trpc|_next|_vercel|.*\\..*).*)',
-        '/admin/:path*',
-    ]
+  // Match only internationalized pathnames
+  matcher: ['/', '/(ar|en)/:path*']
 };
