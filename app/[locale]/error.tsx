@@ -1,7 +1,7 @@
 "use client"; // Error components must be Client Components
 
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@heroui/react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Info } from "lucide-react";
 
@@ -15,7 +15,7 @@ export default function Error({ error, reset }: {
                 <Info className="h-5 w-5" />
                 <AlertDescription>Something went wrong!</AlertDescription>
             </Alert>
-            <Button onClick={() => reset()} color="destructive" size="sm">
+            <Button onPress={() => reset()} color="danger" size="sm">
                 Try again
             </Button>
         </div>
