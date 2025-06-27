@@ -28,6 +28,7 @@ import TablePagination from "./table-pagination"
 import { useDishesList } from "@/features/menu/queries/dish.queries"
 import { useQueryStates } from "nuqs"
 import { dishesFiltersClient } from "@/features/menu/filters/dish.filters"
+import { Button } from "@heroui/react"
 
 const DishTable = () => {
 
@@ -90,7 +91,7 @@ const DishTable = () => {
           />
         </div>
       </div>
-
+      <Button variant="solid">Ajouter un plat</Button>
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import "./theme.css"
 import { ThemeProvider } from "@/providers/theme-provider";
 import MountedProvider from "@/providers/mounted.provider";
 import { Toaster } from '@/components/ui/toaster'
@@ -36,15 +35,14 @@ export default async function RootLayout({
   const queryClient = getQueryClient();
 
   return (
-    <html lang={locale} dir={direction}>
-      <body className={`${inter.className} starter-next`}>
+    <html lang={locale} dir={direction} suppressHydrationWarning>
+      <body className={`${inter.className} starter-next`} suppressHydrationWarning>
         <NextIntlClientProvider messages={messages} locale={locale}>
           <QueryProvider>
             <HydrationBoundary state={dehydrate(queryClient)}>
               <NuqsAdapter>
                 <AuthProvider>
-                  <ThemeProvider attribute="class"
-
+                  <ThemeProvider locale={locale} attribute="class"
                     defaultTheme="light">
                     <MountedProvider>
 

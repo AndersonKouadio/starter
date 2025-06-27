@@ -37,6 +37,7 @@ const DashboardPage = () => {
               />
             </WelcomeBlock>
           </div>
+         
           <div className="2xl:col-span-9 lg:col-span-8 col-span-12">
             <Card>
               <CardContent className="p-4">
