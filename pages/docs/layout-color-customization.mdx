@@ -1,17 +1,12 @@
-import { Callout, Steps } from "nextra/components"
+# Personnalisation de la Couleur du Thème
 
-# Theme Color Customization
-Customizing the theme color in Dashcode is highly flexible, allowing you to use any custom color as the theme color.
+La personnalisation de la couleur du thème dans Dashcode est très flexible, vous permettant d'utiliser n'importe quelle couleur personnalisée comme couleur de thème.
 
+### Ajout d'une Nouvelle Couleur :
 
-### Adding a New Color:
+Pour commencer, ouvrez le fichier **`theme.scss`** et ajoutez votre nouvelle couleur en suivant l'extrait de code fourni.
 
-To begin, open the theme.scss file and add your new color following the code snippet provided.
-
-<Callout>Ensure you use the HSL color values.</Callout>
-
-
-
+\<Callout\>Assurez-vous d'utiliser les valeurs de couleur HSL.\</Callout\>
 
 ```scss filename="app/[locale]/theme.css"
 .theme-dark {
@@ -19,12 +14,12 @@ To begin, open the theme.scss file and add your new color following the code sni
      --header: 222.2 84% 4.9%;
 }
 .theme-rose {
-     --sidebar: 341, 64%, 43%; 
+     --sidebar: 341, 64%, 43%;
      --header: 341, 64%, 43%;
      --secondary: 339, 60%, 51%;
       --menu-arrow: 339, 60%, 51%;
-    --menu-arrow-active: 336, 67%, 60%;
-     
+     --menu-arrow-active: 336, 67%, 60%;
+
 }
 
 .theme-gray {
@@ -33,13 +28,15 @@ To begin, open the theme.scss file and add your new color following the code sni
 
       --secondary: 207, 14%, 31%;
       --menu-arrow: 207, 14%, 31%;
-    --menu-arrow-active: 203, 16%, 43%;
+     --menu-arrow-active: 203, 16%, 43%;
 }
 ```
-### Defining Your Color:
 
-After creating your color, define it in the use-config.ts file by referring to the code snippet provided.
+-----
 
+### Définition de Votre Couleur :
+
+Après avoir créé votre couleur, définissez-la dans le fichier **`use-config.ts`** en vous référant à l'extrait de code fourni.
 
 ```ts filename="hooks/use-config.ts"
 export const Config = {
@@ -62,4 +59,3 @@ export const Config = {
   "headerTheme": "light",
   "radius": 0.5
 };
-```

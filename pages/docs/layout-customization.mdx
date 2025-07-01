@@ -1,14 +1,12 @@
-# Layout Customization
+# Personnalisation des Mises en Page
 
-By default, Dashcode includes three predefined layouts. However, you can create new layouts based on your requirements.
+Par défaut, Dashcode inclut trois mises en page prédéfinies. Cependant, vous pouvez créer de nouvelles mises en page selon vos besoins.
 
-### Adding a New Layout:
+### Ajout d'une Nouvelle Mise en Page :
 
-Start by opening the layout.tsx file and adding your new layout using the provided code snippet.
-
+Commencez par ouvrir le fichier **`layout.tsx`** et ajoutez votre nouvelle mise en page en utilisant l'extrait de code fourni.
 
 ```tsx filename="app/[locale]/layout.tsx"
-
 export default async function RootLayout({
   children,
   params: { locale },
@@ -16,7 +14,6 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }>) {
-
   const messages = await getMessages();
   const direction = getLangDir(locale);
   return (
@@ -25,14 +22,11 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages} locale={locale}>
           <AuthProvider>
             <ThemeProvider attribute="class"
-
               defaultTheme="light">
               <MountedProvider>
-
                 <DirectionProvider direction={direction}>
                   {children}
                 </DirectionProvider>
-
               </MountedProvider>
               <Toaster />
               <SonnerToaster />
@@ -43,20 +37,20 @@ export default async function RootLayout({
     </html>
   );
 };
-
 ```
 
-### Defining Your Layout:
+-----
 
-Once you've created your layout, define it in the use-config.ts file by following the code snippet provided.
+### Définition de Votre Mise en Page :
 
+Une fois que vous avez créé votre mise en page, définissez-la dans le fichier **`use-config.ts`** en suivant l'extrait de code fourni.
 
 ```ts filename="hooks/use-config.ts"
 export type Config = {
   collapsed: boolean
   theme: string
   skin: 'default' | 'bordered'
-  layout: layoutType
+  layout: layoutType // C'est ici que vous définissez le type de votre nouvelle mise en page
   sidebar: sidebarType
   menuHidden: boolean,
   showSearchBar: boolean,
@@ -72,6 +66,5 @@ export type Config = {
   headerTheme: string,
   sidebarBgImage?: string
   radius: number
-
 }
 ```

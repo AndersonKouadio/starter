@@ -24,7 +24,7 @@ const config: DocsThemeConfig = {
     text: (
       <span>
         {new Date().getFullYear()} ©{" "}
-        <a href="https://codeshaper.net/" target="_blank">
+        <a href="https://lunion-lab.com/" target="_blank">
           CodeShaper
         </a>
         .

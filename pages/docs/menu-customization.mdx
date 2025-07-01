@@ -1,11 +1,11 @@
 import { Tabs } from "nextra/components";
 
-# Menu Customization
-In our demo, we've utilized various menu structures. To customize your menu, start by selecting the menu structure you prefer for your application.
+# Personnalisation du Menu
 
+Dans notre démo, nous avons utilisé diverses structures de menu. Pour personnaliser votre menu, commencez par sélectionner la structure de menu que vous préférez pour votre application.
 
-### Vertical Menu
-If you prefer using the vertical menu in your system, you can tailor the menus.ts file to suit your requirements.
+### Menu Vertical
+Si vous préférez utiliser le menu vertical dans votre système, vous pouvez adapter le fichier `menus.ts` à vos besoins.
 
 ```ts filename="lib/menus.ts" /children/
 
@@ -53,20 +53,20 @@ export function getMenuList(pathname: string, t: any): Group[] {
                 },
               ],
             },
-            
+
           ],
         },
       ],
     }
   ];
 };
-```
+````
 
-### Horizontal Menu
+-----
 
+### Menu Horizontal
 
-If you prefer using the horizontal collapsed menu in your system, you can tailor the menus.ts file to suit your requirements.
-
+Si vous préférez utiliser le menu horizontal replié dans votre système, vous pouvez adapter le fichier `menus.ts` à vos besoins.
 
 ```js filename="lib/menus.ts" /children/
 export function getHorizontalMenuList(pathname: string, t: any): Group[] {
@@ -113,7 +113,7 @@ export function getHorizontalMenuList(pathname: string, t: any): Group[] {
                 },
               ],
             },
-            
+
           ],
         },
       ],

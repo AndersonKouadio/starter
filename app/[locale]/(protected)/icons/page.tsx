@@ -7,8 +7,10 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
+} from "@/components/ui/tooltip";
+
 const IconPage = () => {
+
   const icons = [
     { name: "heroicons:academic-cap" },
     { name: "heroicons:adjustments-horizontal" },
@@ -62,6 +64,7 @@ const IconPage = () => {
     { name: "heroicons:share" },
     { name: "heroicons:wrench" },
   ];
+
   return (
     <div>
       <SiteBreadcrumb />
@@ -94,7 +97,7 @@ const IconPage = () => {
       <div className="mt-10 flex justify-center">
         <Button asChild>
           <Link
-            href="https://icon-sets.iconify.design"
+            href="https://heroicons.com/"
             target="_blank"
           >
             View All iconify Icons
